@@ -1,5 +1,6 @@
 import types
 
+
 def flat_generator(list_of_list):
     for items in list_of_list:
         if isinstance(items, list):
@@ -7,6 +8,7 @@ def flat_generator(list_of_list):
                 yield item
         else:
             yield items
+
 
 def test_4():
 

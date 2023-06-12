@@ -1,5 +1,5 @@
 class FlatIterator:
-    def __init__(self, list_of_list, parent = None):
+    def __init__(self, list_of_list, parent=None):
         self.list_of_list = list_of_list
         self.iterator = None
         self.parent = parent
@@ -16,7 +16,7 @@ class FlatIterator:
                 self.iterator = iter(FlatIterator(self.list_of_list[self.index], self))
             try:
                 tmp = next(self.iterator)
-            except:
+            except StopIteration:
                 self.index += 1
                 if self.index >= len(self.list_of_list):
                     raise StopIteration
@@ -30,6 +30,7 @@ class FlatIterator:
         else:
             self.index += 1
             return self.list_of_list[self.index - 1]
+
 
 def test_3():
     list_of_lists_2 = [
